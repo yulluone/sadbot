@@ -28,7 +28,7 @@ ignore_letters = ['?', '!', '.', ',']
 #iterate intents
 for intent in intents['intents']:
 	#iterate patterns
-	# print(intent['tag'])
+
 	for pattern in intent['patterns']:
 		#split each sentense into words
 		w = nltk.word_tokenize(pattern)
@@ -44,12 +44,10 @@ for intent in intents['intents']:
 words =	[lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters]
 words	= sorted(list(set(words)))
 classes = sorted(list(set(classes)))
-# print(documents, classes, words, sep = '\n')
 
 #save data to pickle files
 pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes, open('classes.pkl', 'wb'))
-print('pickles saved')
 
 #create training data
 training = []
@@ -76,7 +74,6 @@ training = np.array(training)
 #create train and test lists
 train_x = list(training[:, 0])
 train_y = list(training[:, 1])
-print('training data created')
 
 #build model
 model = Sequential()
@@ -94,5 +91,5 @@ model.compile(loss = 'categorical_crossentropy', optimizer = sgd, metrics = ['ac
 hist = model.fit(np.array(train_x), np.array(train_y), epochs = 200, batch_size = 5, verbose = 1)
 #save model
 model.save('chatbot_model.h5', hist)
-print('model created')
+
 

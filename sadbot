@@ -62,9 +62,10 @@ def getResponse(ints, intents_json):
 												result = random.choice(i['responses'])
 												break
 				return result
-print('Bot is ready')
+
 
 #talk to	the bot
+#function receives a sentence from main.py and returns a response
 def reponse(sentence):
   ints = predict_class(sentence, model)
   res = getResponse(ints, intents)
