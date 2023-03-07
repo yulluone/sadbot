@@ -7,7 +7,7 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow import keras
 from keras.models import load_model
 
-from training import train
+from prepare import prepare #prepare data
 
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
@@ -16,7 +16,7 @@ classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
 
-train() #train the bot
+prepare() #train the bot
 
 #convert numerical text to text
 

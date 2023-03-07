@@ -11,7 +11,7 @@ from keras.models import Sequential #sequential model
 from keras.layers import Dense, Activation, Dropout #layers dense layer, activation function, dropout layer
 from keras.optimizers import SGD #stochastic gradient descent
 
-def train():
+def prepare():
 	#prepare data
 
 	#lematize individual	words
