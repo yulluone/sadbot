@@ -7,12 +7,16 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow import keras
 from keras.models import load_model
 
+from training import train
+
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
+
+train() #train the bot
 
 #convert numerical text to text
 
@@ -58,11 +62,13 @@ def getResponse(ints, intents_json):
 				tag = ints[0]['intent']
 				list_of_intents = intents_json['intents']
 				for i in list_of_intents:
-								if(i['tag']== tag):
+								if(i['tag'] == tag):
 												result = random.choice(i['responses'])
 												break
 				return result
 
+print("Ready to Chat")
+print("Supported topics: Booking, Chit-Chat, FAQs, Feedback, Inquiry, Order")
 
 #talk to	the bot
 #function receives a sentence from main.py and returns a response

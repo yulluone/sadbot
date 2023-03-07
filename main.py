@@ -2,11 +2,11 @@ import os
 import warnings
 from ontology_dc8f06af066e4a7880a5938933236037.simple_text import SimpleText
 
+from sadbot import response
+
 from openfabric_pysdk.context import OpenfabricExecutionRay
 from openfabric_pysdk.loader import ConfigClass
 from time import time
-
-from sadbot import response
 
 
 ############################################################
