@@ -6,6 +6,8 @@ from openfabric_pysdk.context import OpenfabricExecutionRay
 from openfabric_pysdk.loader import ConfigClass
 from time import time
 
+from sadbot import response
+
 
 ############################################################
 # Callback function called on update config
@@ -22,7 +24,7 @@ def execute(request: SimpleText, ray: OpenfabricExecutionRay) -> SimpleText:
     output = []
     for text in request.text:
         # TODO Add code here
-        response = ''
+        response = response(text)
         output.append(response)
 
     return SimpleText(dict(text=output))
