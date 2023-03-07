@@ -16,7 +16,7 @@ classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
 
-prepare() #train the bot
+prepare() #train the data
 
 #convert numerical text to text
 
